@@ -3,53 +3,56 @@
     "id": 1,
     "name": "Women's Mesh Sneakers",
     "price": "$20.00",
-    "category": "Women",
+    "category": "shoes",
     "image": "https://media.istockphoto.com/id/1350560575/photo/pair-of-blue-running-sneakers-on-white-background-isolated.jpg?s=612x612&w=0&k=20&c=A3w_a9q3Gz-tWkQL6K00xu7UHdN5LLZefzPDp-wNkSU="
   },
   {
     "id": 2,
-    "name": "Product 2",
-    "category": "men",
+    "name": "Women's Mesh Sneakers",
+    "category": "shoes",
     "price": "$30.00",
     "image": "https://m.media-amazon.com/images/I/91wKsaU+aRL._SX625_.jpg"
   },
   {
     "id": 3,
-    "name": "Product 3",
-    "category": "men",
+    "name": "Women's Mesh Sneakers",
+    "category": "shoes",
     "price": "$25.00",
     "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
   },
   {
     "id": 4,
-    "name": "Product 3",
-    "category": "men",
+    "name": "Women Flat Slipper",
+    "category": "slipper",
     "price": "$25.00",
-    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+    "image": "https://m.media-amazon.com/images/I/61vjKZ6a5cL._AC_UL320_.jpg"
   },
   {
     "id": 5,
-    "name": "Product 3",
+    "name": "Carlington Elite Ladies",
     "price": "$25.00",
-    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+    "category": "watches",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-efS9wqLgA0p2IGFoNApiTWVtvD3zg4gcOg&s"
   },
   {
     "id": 6,
-    "name": "Product 3",
-    "category": "women",
+    "name": "M1 Smart Watch",
+    "category": "watches",
     "price": "$25.00",
-    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+    "image": "data:image/jpeg;base64,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"
   },
   {
     "id": 7,
-    "name": "Product 3",
+    "name": "Lenovo V15",
     "price": "$25.00",
-    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+    "category": "laptops",
+    "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQmqfd1tijVgZsOOvVzt7RuybBe9vC9lLMj-xeDvN4IGJgmX4ii7J-HqqjJnxm1JPYqjBEWhqoHcH4i05vAIjxt0bcKWn_P10dtZaEMScErkgJ2x18P5lg7"
   },
   {
     "id": 8,
-    "name": "Product 3",
+    "name": "HP 15-FD0186TU",
     "price": "$25.00",
-    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+    "category": "laptops",
+    "image": "https://m.media-amazon.com/images/I/71stbZtYInL.jpg"
   }
 ]

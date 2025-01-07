@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, FormControl, InputLabel, Select, MenuItem, Slider, Typography, Grid } from "@mui/material";
+import { Box, Grid, Typography, FormControl, InputLabel, Select, MenuItem, Slider } from "@mui/material";
 
 const Filter = ({ categories, onFilterChange }) => {
   const [category, setCategory] = useState("");
@@ -7,8 +7,9 @@ const Filter = ({ categories, onFilterChange }) => {
   const [sortBy, setSortBy] = useState("");
 
   const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
-    onFilterChange({ category: event.target.value, priceRange, sortBy });
+    const newCategory = event.target.value;
+    setCategory(newCategory);
+    onFilterChange({ category: newCategory, priceRange, sortBy });
   };
 
   const handlePriceRangeChange = (event, newValue) => {
@@ -17,33 +18,24 @@ const Filter = ({ categories, onFilterChange }) => {
   };
 
   const handleSortChange = (event) => {
-    setSortBy(event.target.value);
-    onFilterChange({ category, priceRange, sortBy: event.target.value });
+    const newSortBy = event.target.value;
+    setSortBy(newSortBy);
+    onFilterChange({ category, priceRange, sortBy: newSortBy });
   };
 
   return (
-    <Box sx={{ padding: "16px", borderBottom: "1px solid #ddd" }}>
-      <Typography variant="h6" sx={{ mb: 2 }}>
-        Filters
-      </Typography>
-
-      <Grid container spacing={2}>
-        {/* Category Filter */}
-        <Grid item xs={12} sm={6} md={4}>
+    <Box sx={{ padding: "16px",  }}>
+      <Typography variant="h6" sx={{ mb: 2 }}>Filters</Typography>
+      <Grid  >
           <FormControl fullWidth>
             <InputLabel>Category</InputLabel>
             <Select value={category} onChange={handleCategoryChange}>
               {categories.map((cat) => (
-                <MenuItem key={cat} value={cat}>
-                  {cat}
-                </MenuItem>
+                <MenuItem key={cat} value={cat}>{cat}</MenuItem>
               ))}
             </Select>
           </FormControl>
-        </Grid>
 
-        {/* Price Range Filter */}
-        <Grid item xs={12} sm={6} md={4}>
           <Typography gutterBottom>Price Range</Typography>
           <Slider
             value={priceRange}
@@ -54,10 +46,7 @@ const Filter = ({ categories, onFilterChange }) => {
             max={1000}
             step={10}
           />
-        </Grid>
 
-        {/* Sort Filter */}
-        <Grid item xs={12} sm={6} md={4}>
           <FormControl fullWidth>
             <InputLabel>Sort By</InputLabel>
             <Select value={sortBy} onChange={handleSortChange}>
@@ -65,7 +54,6 @@ const Filter = ({ categories, onFilterChange }) => {
               <MenuItem value="highToLow">Price: High to Low</MenuItem>
             </Select>
           </FormControl>
-        </Grid>
       </Grid>
     </Box>
   );
