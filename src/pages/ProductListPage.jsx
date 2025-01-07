@@ -10,7 +10,7 @@ const ProductListPage = () => {
   const [loading, setLoading] = useState(true);
   const [cartClicked, setCartClicked] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [categories] = useState(["shoes", "slipper", "laptops", "watches"]); // Example categories
+  const [categories] = useState(["shoes", "slipper", "laptops", "watches"]); 
   const [showGoToTop, setShowGoToTop] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const ProductListPage = () => {
         });
     }, 1500);
 
-    // Scroll event listener for "Go to Top" button
+    
     const handleScroll = () => {
       setShowGoToTop(window.scrollY > 300);
     };
@@ -44,12 +44,12 @@ const ProductListPage = () => {
   const handleFilterChange = ({ category, priceRange, sortBy }) => {
     let filtered = products;
 
-    // Apply category filter if provided
+    
     if (category) {
       filtered = filtered.filter((product) => product.category === category);
     }
 
-    // Apply price range filter if provided
+    
     if (priceRange) {
       filtered = filtered.filter((product) => {
         const price = parseFloat(product.price.replace("$", ""));
@@ -57,7 +57,7 @@ const ProductListPage = () => {
       });
     }
 
-    // Apply sorting if specified
+    
     if (sortBy === "lowToHigh") {
       filtered.sort((a, b) => {
         const priceA = parseFloat(a.price.replace("$", ""));
@@ -117,7 +117,7 @@ const ProductListPage = () => {
         </Typography>
       </Box>
 
-      {/* Main Content */}
+      
       <Grid container spacing={2}>
         <Grid item xs={2}>
           <Filter categories={categories} onFilterChange={handleFilterChange} />
@@ -146,7 +146,7 @@ const ProductListPage = () => {
         </Grid>
       </Grid>
 
-      {/* Go to Top Button */}
+    
       <Zoom in={showGoToTop}>
         <Fab
           color="primary"

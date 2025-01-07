@@ -24,5 +24,5 @@ Ensure you have Node.js installed, then run:
 npm install
 
 <!-- Start the development server -->
-Run the following command:
+Run the following command:  
 npm start
