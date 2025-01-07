@@ -7,6 +7,7 @@ Add to Cart Animation: A visual cue appears when a product is added to the cart.
 Reusable Components:
 Filter for category and price filtering.
 ProductCard for showcasing individual products.
+npm i react-toastify used for notification.
 
 <!-- Technologies Used -->
 React: Component-based architecture for building the UI.

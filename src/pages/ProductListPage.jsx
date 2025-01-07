@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Grid, Typography, Skeleton } from "@mui/material";
 import Filter from "../components/Filter";
 import ProductCard from "../components/ProductCard";
+import { toast } from "react-toastify";
 
 const ProductListPage = () => {
   const [products, setProducts] = useState([]);
@@ -66,6 +67,7 @@ const ProductListPage = () => {
 
   const handleAddToCart = () => {
     setCartClicked(true);
+    toast.success("Product added to cart!");
     setTimeout(() => setCartClicked(false), 500);
   };
 
