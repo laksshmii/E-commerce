@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Grid, Typography, FormControl, InputLabel, Select, MenuItem, Slider, Button } from "@mui/material";
+import { Box, Grid, Typography, FormControl, Select, MenuItem, Slider, Button } from "@mui/material";
 
 const Filter = ({ categories, onFilterChange }) => {
   const [category, setCategory] = useState("");
@@ -44,9 +44,12 @@ const Filter = ({ categories, onFilterChange }) => {
       <Typography variant="h6" sx={{ mb: 2 }}>Filters</Typography>
       <Grid container spacing={2}>
         <Grid item xs={12}>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Category
+          </Typography>
           <FormControl fullWidth>
-            <InputLabel>Category</InputLabel>
-            <Select value={category} onChange={handleCategoryChange}>
+            <Select value={category} onChange={handleCategoryChange} displayEmpty>
+              <MenuItem value="">All</MenuItem>
               {categories.map((cat) => (
                 <MenuItem key={cat} value={cat}>{cat}</MenuItem>
               ))}
@@ -68,9 +71,12 @@ const Filter = ({ categories, onFilterChange }) => {
         </Grid>
 
         <Grid item xs={12}>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Sort By
+          </Typography>
           <FormControl fullWidth>
-            <InputLabel>Sort By</InputLabel>
-            <Select value={sortBy} onChange={handleSortChange}>
+            <Select value={sortBy} onChange={handleSortChange} displayEmpty>
+              <MenuItem value="">None</MenuItem>
               <MenuItem value="lowToHigh">Price: Low to High</MenuItem>
               <MenuItem value="highToLow">Price: High to Low</MenuItem>
             </Select>
