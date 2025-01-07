@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "name": "Women's Mesh Sneakers",
+    "price": "$20.00",
+    "category": "Women",
+    "image": "https://media.istockphoto.com/id/1350560575/photo/pair-of-blue-running-sneakers-on-white-background-isolated.jpg?s=612x612&w=0&k=20&c=A3w_a9q3Gz-tWkQL6K00xu7UHdN5LLZefzPDp-wNkSU="
+  },
+  {
+    "id": 2,
+    "name": "Product 2",
+    "category": "men",
+    "price": "$30.00",
+    "image": "https://m.media-amazon.com/images/I/91wKsaU+aRL._SX625_.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Product 3",
+    "category": "men",
+    "price": "$25.00",
+    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Product 3",
+    "category": "men",
+    "price": "$25.00",
+    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Product 3",
+    "price": "$25.00",
+    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Product 3",
+    "category": "women",
+    "price": "$25.00",
+    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Product 3",
+    "price": "$25.00",
+    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Product 3",
+    "price": "$25.00",
+    "image": "https://m.media-amazon.com/images/I/71f3BmjCwtL._SY625_.jpg"
+  }
+]
