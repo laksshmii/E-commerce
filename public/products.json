@@ -44,14 +44,14 @@
   {
     "id": 7,
     "name": "Lenovo V15",
-    "price": "$25.00",
+    "price": "$75.00",
     "category": "laptops",
     "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQmqfd1tijVgZsOOvVzt7RuybBe9vC9lLMj-xeDvN4IGJgmX4ii7J-HqqjJnxm1JPYqjBEWhqoHcH4i05vAIjxt0bcKWn_P10dtZaEMScErkgJ2x18P5lg7"
   },
   {
     "id": 8,
     "name": "HP 15-FD0186TU",
-    "price": "$25.00",
+    "price": "$89.00",
     "category": "laptops",
     "image": "https://m.media-amazon.com/images/I/71stbZtYInL.jpg"
   }

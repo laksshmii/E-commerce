@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Grid, Typography, FormControl, InputLabel, Select, MenuItem, Slider } from "@mui/material";
+import { Box, Grid, Typography, FormControl, InputLabel, Select, MenuItem, Slider, Button } from "@mui/material";
 
 const Filter = ({ categories, onFilterChange }) => {
   const [category, setCategory] = useState("");
@@ -23,10 +23,27 @@ const Filter = ({ categories, onFilterChange }) => {
     onFilterChange({ category, priceRange, sortBy: newSortBy });
   };
 
+  const handleReset = () => {
+    const defaultCategory = "";
+    const defaultPriceRange = [0, 500];
+    const defaultSortBy = "";
+
+    setCategory(defaultCategory);
+    setPriceRange(defaultPriceRange);
+    setSortBy(defaultSortBy);
+
+    onFilterChange({
+      category: defaultCategory,
+      priceRange: defaultPriceRange,
+      sortBy: defaultSortBy,
+    });
+  };
+
   return (
-    <Box sx={{ padding: "16px",  }}>
+    <Box sx={{ padding: "16px" }}>
       <Typography variant="h6" sx={{ mb: 2 }}>Filters</Typography>
-      <Grid  >
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
           <FormControl fullWidth>
             <InputLabel>Category</InputLabel>
             <Select value={category} onChange={handleCategoryChange}>
@@ -35,7 +52,9 @@ const Filter = ({ categories, onFilterChange }) => {
               ))}
             </Select>
           </FormControl>
+        </Grid>
 
+        <Grid item xs={12}>
           <Typography gutterBottom>Price Range</Typography>
           <Slider
             value={priceRange}
@@ -46,7 +65,9 @@ const Filter = ({ categories, onFilterChange }) => {
             max={1000}
             step={10}
           />
+        </Grid>
 
+        <Grid item xs={12}>
           <FormControl fullWidth>
             <InputLabel>Sort By</InputLabel>
             <Select value={sortBy} onChange={handleSortChange}>
@@ -54,6 +75,18 @@ const Filter = ({ categories, onFilterChange }) => {
               <MenuItem value="highToLow">Price: High to Low</MenuItem>
             </Select>
           </FormControl>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Button
+            variant="outlined"
+            fullWidth
+            color="primary"
+            onClick={handleReset}
+          >
+            Reset Filters
+          </Button>
+        </Grid>
       </Grid>
     </Box>
   );

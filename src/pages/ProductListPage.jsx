@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Box, Grid, Typography, Skeleton } from "@mui/material";
+import { Box, Grid, Typography, Skeleton, Fab, Zoom } from "@mui/material";
+import { KeyboardArrowUp } from "@mui/icons-material";
 import Filter from "../components/Filter";
 import ProductCard from "../components/ProductCard";
 import { toast } from "react-toastify";
@@ -10,6 +11,7 @@ const ProductListPage = () => {
   const [cartClicked, setCartClicked] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categories] = useState(["shoes", "slipper", "laptops", "watches"]); // Example categories
+  const [showGoToTop, setShowGoToTop] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,6 +31,14 @@ const ProductListPage = () => {
           console.error("Error fetching products:", error);
         });
     }, 1500);
+
+    // Scroll event listener for "Go to Top" button
+    const handleScroll = () => {
+      setShowGoToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleFilterChange = ({ category, priceRange, sortBy }) => {
@@ -71,6 +81,10 @@ const ProductListPage = () => {
     setTimeout(() => setCartClicked(false), 500);
   };
 
+  const handleGoToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <Box sx={{ maxWidth: "1200px", margin: "auto", padding: "16px" }}>
       {/* Banner Section */}
@@ -92,9 +106,10 @@ const ProductListPage = () => {
             textAlign: "center",
             lineHeight: "200px",
             textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
-            backgroundImage:"url('https://img.freepik.com/free-photo/shopping-concept-close-up-portrait-young-beautiful-attractive-redhair-girl-smiling-looking-camera_1258-126800.jpg?ga=GA1.1.781516593.1732700331&semt=ais_hybrid')",
-            backgroundSize: "cover", // Ensures the image covers the entire container
-            backgroundPosition: "center", // Centers the image
+            backgroundImage:
+              "url('https://img.freepik.com/free-photo/shopping-concept-close-up-portrait-young-beautiful-attractive-redhair-girl-smiling-looking-camera_1258-126800.jpg?ga=GA1.1.781516593.1732700331&semt=ais_hybrid')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >
@@ -102,7 +117,7 @@ const ProductListPage = () => {
         </Typography>
       </Box>
 
-    
+      {/* Main Content */}
       <Grid container spacing={2}>
         <Grid item xs={2}>
           <Filter categories={categories} onFilterChange={handleFilterChange} />
@@ -111,21 +126,37 @@ const ProductListPage = () => {
           <Grid container spacing={3}>
             {loading
               ? Array.from(new Array(8)).map((_, index) => (
-                  <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                    <Skeleton variant="rectangular" height={200} />
-                    <Skeleton height={30} width="80%" />
-                    <Skeleton height={20} width="60%" style={{ marginTop: "8px" }} />
-                    <Skeleton height={40} width="100%" style={{ marginTop: "16px" }} />
-                  </Grid>
-                ))
+                <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                  <Skeleton variant="rectangular" height={200} />
+                  <Skeleton height={30} width="80%" />
+                  <Skeleton height={20} width="60%" style={{ marginTop: "8px" }} />
+                  <Skeleton height={40} width="100%" style={{ marginTop: "16px" }} />
+                </Grid>
+              ))
               : filteredProducts.map((product) => (
-                  <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-                    <ProductCard product={product} onAddToCart={handleAddToCart} cartClicked={cartClicked} />
-                  </Grid>
-                ))}
+                <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+                  <ProductCard
+                    product={product}
+                    onAddToCart={handleAddToCart}
+                    cartClicked={cartClicked}
+                  />
+                </Grid>
+              ))}
           </Grid>
         </Grid>
       </Grid>
+
+      {/* Go to Top Button */}
+      <Zoom in={showGoToTop}>
+        <Fab
+          color="primary"
+          size="small"
+          onClick={handleGoToTop}
+          sx={{ position: "fixed", bottom: 16, right: 16 }}
+        >
+          <KeyboardArrowUp />
+        </Fab>
+      </Zoom>
     </Box>
   );
 };
